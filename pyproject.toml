@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cat-doodle-attributes"
+version = "0.1.0"
+description = "Read a coloured cat doodle's coat, patches and eye colours as the condition for an oil-painting model"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.26",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+landmarks = ["cat-face-landmarks @ git+https://github.com/alina0607/cat-face-landmarks.git"]
+
+[tool.setuptools.packages.find]
+include = ["catdoodle*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
